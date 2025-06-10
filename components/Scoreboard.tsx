@@ -1,10 +1,5 @@
 "use client";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 import { Trophy, RotateCcw, Plus, Minus } from "lucide-react";
@@ -46,18 +41,12 @@ const ScoreboardDisplay = ({ gameState }: ScoreboardDisplayProps) => {
   const isMatchComplete = gameState.setWinner !== null;
 
   return (
-    <Card className="shadow-2xl border-0 overflow-hidden py-0 gap-0">
-      <CardHeader className="text-center pb-6 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 text-white py-6">
+    <Card className="shadow-2xl border-0 overflow-hidden py-0 gap-0 bg-gradient-to-br from-slate-50 to-gray-100">
+      <CardHeader className="text-center pb-6 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 text-white py-6  h-28">
         <div className="flex items-center justify-center gap-3 mb-3">
-          <Trophy className="w-10 h-10 text-yellow-300" />
-          <h1 className="text-4xl font-bold tracking-tight">
-            Tennis Scoreboard
-          </h1>
-          <Trophy className="w-10 h-10 text-yellow-300" />
+          <h1 className="text-2xl font-bold  not-first:">Scoreboard</h1>
         </div>
-        <CardDescription className="text-emerald-100 text-lg font-medium">
-          Professional tennis scoring system
-        </CardDescription>
+
         {isMatchComplete && (
           <div className="mt-4 p-3 bg-yellow-400 text-yellow-900 rounded-lg font-bold text-xl">
             🏆 Match Winner: {gameState.setWinner}
@@ -65,7 +54,7 @@ const ScoreboardDisplay = ({ gameState }: ScoreboardDisplayProps) => {
         )}
       </CardHeader>
 
-      <CardContent className="p-8 bg-gradient-to-br from-slate-50 to-gray-100">
+      <CardContent className="p-8 ">
         <div className="space-y-6">
           {[
             { team: gameState.hometeam, key: "hometeam" },
@@ -145,8 +134,8 @@ const ScoreboardActions = ({
   const isMatchComplete = gameState.setWinner !== null;
 
   return (
-    <Card className="shadow-xl border-0 h-full py-0 gap-0 bg-gradient-to-br from-gray-50 to-slate-100">
-      <CardHeader className="text-center pb-4 bg-gradient-to-r from-slate-700 to-gray-700 text-white rounded-t-lg py-6">
+    <Card className="shadow-xl border-0 h-full py-0 gap-0 bg-gradient-to-br from-gray-50 to-slate-100 ">
+      <CardHeader className="text-center pb-4 bg-gradient-to-r from-slate-700 to-gray-700 text-white rounded-t-lg py-6  h-28">
         <h1 className="text-2xl font-bold text-white">Game Controls</h1>
       </CardHeader>
       <CardContent className="p-6 ">
@@ -208,11 +197,8 @@ const ScoreboardHistory = ({ gameHistory }: ScoreboardHistoryProps) => {
 
   return (
     <Card className="shadow-xl border-0 h-full py-0 gap-0 bg-gradient-to-br from-indigo-50 to-purple-50">
-      <CardHeader className="text-center pb-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-t-lg py-6 ">
+      <CardHeader className="text-center pb-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-t-lg py-6 h-28 ">
         <h2 className="text-2xl font-bold">Match History</h2>
-        <CardDescription className="text-gray-200 text-sm">
-          {gameHistory.length} actions recorded
-        </CardDescription>
       </CardHeader>
       <CardContent className="p-6 ">
         <ScrollArea className="h-96">
